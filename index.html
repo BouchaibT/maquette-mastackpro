@@ -151,15 +151,15 @@
 
   <section class="hero">
     <div class="diapos">
-      <img src="images/bureau_clair.jpg" alt="Bureau de travail lumineux">
-      <img src="images/atelier_clair.jpg" alt="Atelier et outils rangés">
-      <img src="images/table_claire.jpg" alt="Table de travail avec ordinateur et agenda">
+      <img src="images/bureau_clair.webp" alt="Bureau de travail lumineux">
+      <img data-src="images/atelier_clair.webp" alt="Atelier et outils rangés">
+      <img data-src="images/table_claire.webp" alt="Table de travail avec ordinateur et agenda">
     </div>
     <div class="voile"></div>
     <div class="dedans">
       <div class="contenu">
         <nav>
-          <div class="marque"><img src="images/bulle.png" alt="">MaStackPro</div>
+          <div class="marque"><img loading="lazy" src="images/bulle.png" alt="">MaStackPro</div>
           <div class="menu"><span>Guides</span><span>Par métier</span><span>Comparatifs</span><span>À propos</span></div>
           <div class="bouton-nav">Nous écrire</div>
         </nav>
@@ -200,7 +200,7 @@
       </div>
       <div class="grille revele">
         <div class="carte">
-          <img src="images/vignette_facturation.jpg" alt="">
+          <img loading="lazy" src="images/vignette_facturation.webp" alt="">
           <div class="corps">
             <span class="etq">Facturation</span>
             <h3>Facturation électronique : ce qui est exigé d'un indépendant</h3>
@@ -209,7 +209,7 @@
           </div>
         </div>
         <div class="carte">
-          <img src="images/atelier_clair.jpg" alt="">
+          <img loading="lazy" src="images/atelier_clair.webp" alt="">
           <div class="corps">
             <span class="etq">Artisans</span>
             <h3>Automatisation électricien : devis, planning, SAV</h3>
@@ -218,7 +218,7 @@
           </div>
         </div>
         <div class="carte">
-          <img src="images/vignette_treso.jpg" alt="">
+          <img loading="lazy" src="images/vignette_treso.webp" alt="">
           <div class="corps">
             <span class="etq">Trésorerie</span>
             <h3>Pilotage de trésorerie IA : test réel en TPE</h3>
@@ -227,7 +227,7 @@
           </div>
         </div>
         <div class="carte">
-          <img src="images/table_claire.jpg" alt="">
+          <img loading="lazy" src="images/table_claire.webp" alt="">
           <div class="corps">
             <span class="etq">Artisans</span>
             <h3>Stack IA artisan BTP : devis et suivi de chantier</h3>
@@ -236,7 +236,7 @@
           </div>
         </div>
         <div class="carte">
-          <img src="images/vignette_cles.jpg" alt="">
+          <img loading="lazy" src="images/vignette_cles.webp" alt="">
           <div class="corps">
             <span class="etq">Conciergerie</span>
             <h3>Automatiser une conciergerie Airbnb : WhatsApp et IA, test réel</h3>
@@ -245,7 +245,7 @@
           </div>
         </div>
         <div class="carte">
-          <img src="images/riad_travail.jpg" alt="">
+          <img loading="lazy" src="images/riad_travail.webp" alt="">
           <div class="corps">
             <span class="etq">Accueil</span>
             <h3>Agents vocaux IA en accueil téléphonique : 3 outils testés</h3>
@@ -258,7 +258,7 @@
   </div>
 
   <section class="banniere">
-    <img src="images/atelier_clair.jpg" alt="Atelier et outils">
+    <img loading="lazy" src="images/atelier_clair.webp" alt="Atelier et outils">
     <div class="voile"></div>
     <div class="texte revele">
       <h2>On essaie, on compte, on écrit ce qu'on a trouvé.</h2>
@@ -311,7 +311,7 @@
 
   <section class="contact">
     <div class="fond">
-      <img src="images/bureau_clair.jpg" alt="">
+      <img src="images/bureau_clair.webp" alt="">
       <div class="voile"></div>
     </div>
     <div class="dedans revele">
@@ -330,7 +330,7 @@
     <div class="contenu">
       <div class="pied">
         <div class="pied-gauche">
-          <img src="images/bulle.png" alt="">
+          <img loading="lazy" src="images/bulle.png" alt="">
           <span>MaStackPro — contact@mastackpro.pro</span>
         </div>
         <div class="pied-droite">
@@ -357,6 +357,18 @@
   } else {
     cibles.forEach(c => c.classList.add('vu'));
   }
+</script>
+
+<script>
+  // charge les photos suivantes seulement après l'affichage de la page
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      document.querySelectorAll('img[data-src]').forEach(function (img) {
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+      });
+    }, 900);
+  });
 </script>
 </body>
 </html>
