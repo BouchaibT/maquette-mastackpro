@@ -21,6 +21,7 @@
   }
   *{box-sizing:border-box; margin:0; padding:0}
   html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:24px}
   body{background:var(--blanc); color:var(--encre); font-family:'Inter',-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased}
   .contenu{max-width:1240px; margin:0 auto; padding:0 40px}
   h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif; font-weight:600; letter-spacing:-.02em}
@@ -38,8 +39,10 @@
   nav{display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:40px; padding:28px 0}
   .marque{display:flex; align-items:center; gap:13px; color:#fff; font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:23px; text-shadow:0 2px 14px rgba(6,10,20,.9),0 1px 3px rgba(6,10,20,.7)}
   .marque img{width:40px; height:40px; border-radius:11px}
+  .menu a{color:inherit; text-decoration:none; transition:opacity .3s ease}
+  .menu a:hover{opacity:.75}
   .menu{display:flex; gap:34px; color:#fff; font-size:16px; font-weight:500; justify-self:center; white-space:nowrap; text-shadow:0 2px 14px rgba(6,10,20,.9),0 1px 3px rgba(6,10,20,.7)}
-  .bouton-nav{background:#fff; color:var(--encre); padding:14px 27px; border-radius:99px; font-weight:600; font-size:15.5px}
+  .bouton-nav{background:#fff; color:var(--encre); padding:14px 27px; border-radius:99px; font-weight:600; font-size:15.5px; text-decoration:none}
 
   .hero-titre{margin:auto 0; padding-bottom:30px; max-width:920px}
   .badge{display:inline-block; background:var(--ambre); color:#fff; font-size:15px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; padding:11px 22px; border-radius:99px; margin-bottom:26px; box-shadow:0 12px 30px -12px rgba(0,0,0,.6)}
@@ -47,8 +50,8 @@
   .hero-titre h1 em{font-style:italic; font-weight:400; color:#FFD79A}
   .hero-titre p{color:#FFFCF6; font-weight:500; font-size:22px; line-height:1.62; margin-top:26px; max-width:680px; text-shadow:0 2px 22px rgba(6,10,20,.92),0 1px 4px rgba(6,10,20,.8)}
   .hero-actions{display:flex; gap:14px; margin-top:38px; flex-wrap:wrap}
-  .btn-blanc{background:#fff; color:var(--encre); padding:20px 36px; border-radius:99px; font-weight:600; font-size:17px; display:inline-block}
-  .btn-verre{border:1.5px solid rgba(255,255,255,.85); background:rgba(9,15,28,.35); color:#fff; padding:20px 34px; border-radius:99px; font-weight:500; font-size:17px; display:inline-block; backdrop-filter:blur(2px)}
+  .btn-blanc{background:#fff; color:var(--encre); padding:20px 36px; border-radius:99px; font-weight:600; font-size:17px; display:inline-block; text-decoration:none}
+  .btn-verre{border:1.5px solid rgba(255,255,255,.85); background:rgba(9,15,28,.35); color:#fff; padding:20px 34px; border-radius:99px; font-weight:500; font-size:17px; display:inline-block; text-decoration:none; backdrop-filter:blur(2px)}
   .hero-bas{display:flex; gap:14px; flex-wrap:wrap; color:#FFFCF6; font-weight:500; font-size:15.5px; padding-bottom:32px; text-shadow:0 2px 16px rgba(6,10,20,.95),0 1px 3px rgba(6,10,20,.8)}
 
   .revele{opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.3,1)}
@@ -67,7 +70,7 @@
   .lien{color:var(--bleu); font-weight:600; font-size:16px; border-bottom:2px solid var(--bleu); padding-bottom:4px; white-space:nowrap}
 
   .grille{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
-  .carte{background:#fff; border:1px solid var(--trait); border-radius:22px; overflow:hidden; transition:transform .4s ease, box-shadow .4s ease}
+  .carte{display:block; background:#fff; border:1px solid var(--trait); border-radius:22px; overflow:hidden; text-decoration:none; color:inherit; transition:transform .4s ease, box-shadow .4s ease}
   .carte:hover{transform:translateY(-6px); box-shadow:0 30px 60px -34px rgba(20,28,46,.42)}
   .carte img{width:100%; height:205px; object-fit:cover; display:block; transition:transform .7s ease}
   .carte:hover img{transform:scale(1.05)}
@@ -160,8 +163,8 @@
       <div class="contenu">
         <nav>
           <div class="marque"><img loading="lazy" src="images/bulle.png" alt="">MaStackPro</div>
-          <div class="menu"><span>Guides</span><span>Par métier</span><span>Comparatifs</span><span>À propos</span></div>
-          <div class="bouton-nav">Nous écrire</div>
+          <div class="menu"><a href="#guides">Guides</a><a href="#methode">Méthode</a><a href="#contact">Nous écrire</a></div>
+          <a class="bouton-nav" href="#contact">Nous écrire</a>
         </nav>
       </div>
       <div class="contenu" style="display:flex; flex-direction:column; flex:1">
@@ -170,8 +173,8 @@
           <h1>L'IA testée pour de vrai,<br><em>métier par métier.</em></h1>
           <p>Pas de listes d'outils à la mode. Des essais menés sur de vrais dossiers, des coûts réels affichés, et ce qui ne fonctionne pas, écrit noir sur blanc.</p>
           <div class="hero-actions">
-            <div class="btn-blanc">Voir les 14 guides</div>
-            <div class="btn-verre">Comment on teste</div>
+            <a class="btn-blanc" href="#guides">Voir les 14 guides</a>
+            <a class="btn-verre" href="#methode">Comment on teste</a>
           </div>
         </div>
         <div class="hero-bas">
@@ -190,16 +193,16 @@
   </div>
 
   <div class="contenu">
-    <section class="section">
+    <section class="section" id="guides">
       <div class="tete revele">
         <div>
           <h2>Les derniers guides</h2>
           <p>Un métier, un problème concret, et la solution testée jusqu'au bout.</p>
         </div>
-        <div class="lien">Tous les guides</div>
+        <a class="lien" href="#guides">Tous les guides</a>
       </div>
       <div class="grille revele">
-        <div class="carte">
+        <a class="carte" href="https://mastackpro.pro/facturation-electronique-ce-qui-est-exige-dun-independant/" target="_blank" rel="noopener">
           <img loading="lazy" src="images/vignette_facturation.webp" alt="">
           <div class="corps">
             <span class="etq">Facturation</span>
@@ -207,8 +210,8 @@
             <p>Les obligations à venir, les dates, et les outils qui font le travail à votre place.</p>
             <div class="bas">Septembre 2026 · 8 min de lecture</div>
           </div>
-        </div>
-        <div class="carte">
+        </a>
+        <a class="carte" href="https://mastackpro.pro/automatisation-electricien-comment-gerer-devis-planning-et-sav-sans-secretaire/" target="_blank" rel="noopener">
           <img loading="lazy" src="images/atelier_clair.webp" alt="">
           <div class="corps">
             <span class="etq">Artisans</span>
@@ -216,8 +219,8 @@
             <p>Ce qui se gagne vraiment sur les devis et les relances, et ce qui reste à faire à la main.</p>
             <div class="bas">Septembre 2026 · 9 min de lecture</div>
           </div>
-        </div>
-        <div class="carte">
+        </a>
+        <a class="carte" href="https://mastackpro.pro/le-pilotage-de-tresorerie-par-lia-en-tpe-test-reel-des-previsions-decalages-bancaires-et-limites-sur-le-terrain/" target="_blank" rel="noopener">
           <img loading="lazy" src="images/vignette_treso.webp" alt="">
           <div class="corps">
             <span class="etq">Trésorerie</span>
@@ -225,8 +228,8 @@
             <p>Suivi des encaissements, relances, prévisionnel : ce qui tient sur la durée.</p>
             <div class="bas">Septembre 2026 · 9 min de lecture</div>
           </div>
-        </div>
-        <div class="carte">
+        </a>
+        <a class="carte" href="https://mastackpro.pro/la-stack-ia-dun-artisan-du-btp-automatiser-les-devis-et-le-suivi-de-chantier-test-reel/" target="_blank" rel="noopener">
           <img loading="lazy" src="images/table_claire.webp" alt="">
           <div class="corps">
             <span class="etq">Artisans</span>
@@ -234,8 +237,8 @@
             <p>Les outils testés sur un chantier réel, du premier rendez-vous à la facture.</p>
             <div class="bas">Septembre 2026 · 10 min de lecture</div>
           </div>
-        </div>
-        <div class="carte">
+        </a>
+        <a class="carte" href="https://mastackpro.pro/automatiser-une-conciergerie-airbnb-la-stack-whatsapp-ia-testee-de-bout-en-bout/" target="_blank" rel="noopener">
           <img loading="lazy" src="images/vignette_cles.webp" alt="">
           <div class="corps">
             <span class="etq">Conciergerie</span>
@@ -243,8 +246,8 @@
             <p>Ce que l'assistant gère seul, ce qu'il doit transmettre, et le coût réel côté propriétaire.</p>
             <div class="bas">Septembre 2026 · 11 min de lecture</div>
           </div>
-        </div>
-        <div class="carte">
+        </a>
+        <a class="carte" href="https://mastackpro.pro/comparatif-reel-des-agents-vocaux-ia-pour-laccueil-telephonique-en-tpe-tests-sur-3-solutions-couts-caches-et-decrochages-sur-le-terrain/" target="_blank" rel="noopener">
           <img loading="lazy" src="images/riad_travail.webp" alt="">
           <div class="corps">
             <span class="etq">Accueil</span>
@@ -252,7 +255,7 @@
             <p>Trois services passés au crible sur de vrais appels : ce qui tient, ce qui décroche.</p>
             <div class="bas">Septembre 2026 · 10 min de lecture</div>
           </div>
-        </div>
+        </a>
       </div>
     </section>
   </div>
@@ -263,13 +266,13 @@
     <div class="texte revele">
       <h2>On essaie, on compte, on écrit ce qu'on a trouvé.</h2>
       <p>Chaque guide part d'un cas réel, avec le temps passé et l'argent dépensé. Quand un outil déçoit, c'est écrit aussi, même s'il est cher.</p>
-      <div class="btn-blanc">Voir comment on teste</div>
+      <a class="btn-blanc" href="#methode">Voir comment on teste</a>
     </div>
   </section>
 
   <div style="background:var(--sable)">
     <div class="contenu">
-      <section class="section">
+      <section class="section" id="methode">
         <div class="tete revele">
           <div>
             <h2>Comment on travaille</h2>
@@ -304,12 +307,12 @@
           <h2>Vous cherchez un outil pour votre métier ?</h2>
           <p>Dites-nous ce que vous faites et ce qui vous prend du temps. On vous dira franchement si un outil peut vous aider, ou si ça n'en vaut pas la peine.</p>
         </div>
-        <div class="lien">Nous écrire</div>
+        <a class="lien" href="#contact">Nous écrire</a>
       </div>
     </section>
   </div>
 
-  <section class="contact">
+  <section class="contact" id="contact">
     <div class="fond">
       <img src="images/bureau_clair.webp" alt="">
       <div class="voile"></div>
@@ -320,7 +323,7 @@
         <p>Écrivez-nous. On répond nous-mêmes, et on vous dit franchement si ce que vous cherchez est faisable ou non.</p>
       </div>
       <div class="droite">
-        <div class="btn-blanc">Écrire à contact@mastackpro.pro</div>
+        <a class="btn-blanc" href="mailto:contact@mastackpro.pro">Écrire à contact@mastackpro.pro</a>
         <div style="color:#9AA4B5; font-size:15px">Réponse sous 24 heures ouvrées.</div>
       </div>
     </div>
@@ -333,11 +336,7 @@
           <img loading="lazy" src="images/bulle.png" alt="">
           <span>MaStackPro — contact@mastackpro.pro</span>
         </div>
-        <div class="pied-droite">
-          <a class="ic" href="https://www.facebook.com/61594182764065" target="_blank" rel="noopener">FB</a>
-          <a class="ic" href="https://www.instagram.com/agencewebbot/" target="_blank" rel="noopener">IG</a>
-          <a class="ic" href="https://www.linkedin.com/in/hachmi-bouchaib-025280433" target="_blank" rel="noopener">in</a>
-        </div>
+        <div class="pied-droite" style="font-size:15px; color:#8D97A8">Guides écrits et testés par un indépendant</div>
       </div>
       <div class="passerelle">
         Vous gérez des locations courte durée et vous voulez arrêter de répondre aux voyageurs le soir ?
@@ -369,6 +368,34 @@
       });
     }, 900);
   });
+</script>
+
+<script>
+  // compteurs animés sur les chiffres clés
+  (function () {
+    const chiffres = document.querySelectorAll('.preuve b');
+    if (!chiffres.length || !('IntersectionObserver' in window)) return;
+    const animer = (el) => {
+      const texte = el.textContent.trim();
+      const m = texte.match(/^(\d+)(.*)$/);
+      if (!m) return;
+      const cible = parseInt(m[1], 10), suffixe = m[2] || '';
+      if (cible === 0) return;
+      let debut = null;
+      const etape = (t) => {
+        if (!debut) debut = t;
+        const avance = Math.min((t - debut) / 1200, 1);
+        const valeur = Math.round(cible * (1 - Math.pow(1 - avance, 3)));
+        el.textContent = valeur + suffixe;
+        if (avance < 1) requestAnimationFrame(etape);
+      };
+      requestAnimationFrame(etape);
+    };
+    const obs = new IntersectionObserver((entrees) => {
+      entrees.forEach(e => { if (e.isIntersecting) { animer(e.target); obs.unobserve(e.target); } });
+    }, { threshold: 0.4 });
+    chiffres.forEach(c => obs.observe(c));
+  })();
 </script>
 </body>
 </html>
